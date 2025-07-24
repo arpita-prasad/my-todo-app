@@ -36,10 +36,10 @@ A simple **React To-Do List application** built with modern React features and p
 3. **Configure your environment variables**
 
 Create a `.env` file in the root directory and add your Appwrite configuration:
-> VITE_APPWRITE_ENDPOINT=https://your-appwrite-endpoint <br>
-> VITE_APPWRITE_PROJECT_ID=your_project_id <br>
-> VITE_APPWRITE_DATABASE_ID=your_database_id <br>
-> VITE_APPWRITE_COLLECTION_ID=your_collection_id
+> VITE_APPWRITE_ENDPOINT=`https://your-appwrite-endpoint` <br>
+> VITE_APPWRITE_PROJECT_ID=`your_project_id` <br>
+> VITE_APPWRITE_DATABASE_ID=`your_database_id` <br>
+> VITE_APPWRITE_COLLECTION_ID=`your_collection_id`
 
 Replace each value with your actual Appwrite endpoint and IDs.
 
