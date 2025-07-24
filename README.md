@@ -1,69 +1,46 @@
-# React + TypeScript + Vite
+# React To-Do App with Appwrite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple **React To-Do List application** built with modern React features and powered by [Appwrite](https://appwrite.io) backend for data persistence.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- Add, delete, and toggle completion of tasks  
+- Filter tasks by all, complete, or pending  
+- Uses Appwrite for backend document storage  
+- Easily configurable with environment variables  
+- Built with React, TypeScript, and Tailwind CSS
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Technologies Used
+- React with Hooks and TypeScript  
+- Tailwind CSS for styling  
+- Appwrite for backend API  
+- React Icons for UI icons
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Getting Started
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### Prerequisites
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Node.js (v14 or higher recommended)  
+- npm or yarn (package manager)  
+- An [Appwrite](https://appwrite.io) project with a database and collection setup  
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Setup
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. **Clone the repository**
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+2. **Install dependencies**
+
+3. **Configure your environment variables**
+
+Create a `.env` file in the root directory and add your Appwrite configuration:
+> VITE_APPWRITE_ENDPOINT=https://your-appwrite-endpoint <br>
+> VITE_APPWRITE_PROJECT_ID=your_project_id <br>
+> VITE_APPWRITE_DATABASE_ID=your_database_id <br>
+> VITE_APPWRITE_COLLECTION_ID=your_collection_id
+
+Replace each value with your actual Appwrite endpoint and IDs.
+
+4. **Run the development server**
