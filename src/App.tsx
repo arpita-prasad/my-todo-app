@@ -84,59 +84,59 @@ function App() {
   });
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 bg-gradient-to-br from-blue-100 to-blue-300 transition-all">
-      <div className="bg-white/70 backdrop-blur-xl rounded-3xl shadow-2xl w-[340px] sm:w-[420px] border border-white/40
-        h-[500px] flex flex-col"
+    <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-blue-100 to-blue-300 transition-all">
+      <div className="bg-white/70 backdrop-blur-xl rounded-3xl shadow-2xl w-full max-w-[420px] border border-white/40
+        max-h-[90vh] min-h-[500px] flex flex-col"
       >
-        <h1 className="text-3xl font-bold text-center text-purple-600 mb-6 drop-shadow-sm tracking-tight mt-8">My To-Do List</h1>
+        <h1 className="text-2xl sm:text-3xl font-bold text-center text-purple-600 mb-4 sm:mb-6 drop-shadow-sm tracking-tight mt-6 sm:mt-8">My To-Do List</h1>
 
-        <div className="flex items-center gap-3 mb-6 px-4">
+        <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6 px-4">
           <input
             type="text"
             value={taskText}
             onChange={(e) => setTaskText(e.target.value)}
             placeholder="What needs to be done?"
-            className="flex-1 border-none rounded-full px-6 py-4 outline-none text-base text-gray-700 placeholder:text-gray-400 bg-white/70 shadow-inner focus:ring-2 focus:ring-purple-300 transition"
+            className="flex-1 border-none rounded-full px-4 sm:px-6 py-3 sm:py-4 outline-none text-sm sm:text-base text-gray-700 placeholder:text-gray-400 bg-white/70 shadow-inner focus:ring-2 focus:ring-purple-300 transition"
             onKeyDown={e => e.key === 'Enter' && addTask()}
           />
           <button
             onClick={addTask}
-            className="bg-gradient-to-r from-purple-500 to-indigo-500 text-white px-5 py-3 rounded-full text-base font-semibold shadow-lg hover:scale-105 hover:from-purple-600 hover:to-indigo-600 active:scale-95 transition"
+            className="bg-gradient-to-r from-purple-500 to-indigo-500 text-white px-4 sm:px-5 py-3 rounded-full text-sm sm:text-base font-semibold shadow-lg hover:scale-105 hover:from-purple-600 hover:to-indigo-600 active:scale-95 transition"
           >
             Add
           </button>
         </div>
 
-        <div className="flex-1 mb-6 space-y-3 overflow-y-auto min-h-[150px] px-2">
+        <div className="flex-1 mb-4 sm:mb-6 space-y-2 sm:space-y-3 overflow-y-auto min-h-0 px-2">
           {loading ? (
-            <div className="h-full flex items-center justify-center">
+            <div className="h-32 flex items-center justify-center">
               <p className="text-gray-400 text-sm text-center">Loading...</p>
             </div>
           ) : filteredTasks.length === 0 ? (
-            <div className="h-full flex items-center justify-center">
+            <div className="h-32 flex items-center justify-center">
               <p className="text-gray-400 text-sm text-center">No tasks yet. Add one!</p>
             </div>
           ) : (
             filteredTasks.map(task => (
               <div
                 key={task.id}
-                className="flex items-center justify-between px-4 py-3 rounded-xl shadow-sm bg-white/80 hover:bg-purple-50 transition group"
+                className="flex items-center justify-between px-3 sm:px-4 py-2 sm:py-3 rounded-xl shadow-sm bg-white/80 hover:bg-purple-50 transition group"
               >
                 <button
                   onClick={() => toggleComplete(task.id)}
-                  className="mr-3 focus:outline-none"
+                  className="mr-2 sm:mr-3 focus:outline-none flex-shrink-0"
                   title={task.completed ? "Mark as incomplete" : "Mark as complete"}
                 >
                   {task.completed ? (
-                    <FaCheckCircle className="text-purple-500 text-xl animate-pulse" />
+                    <FaCheckCircle className="text-purple-500 text-lg sm:text-xl animate-pulse" />
                   ) : (
-                    <FaCircle className="text-gray-300 text-xl" />
+                    <FaCircle className="text-gray-300 text-lg sm:text-xl" />
                   )}
                 </button>
 
                 <span
                   onClick={() => toggleComplete(task.id)}
-                  className={`flex-1 cursor-pointer font-medium select-none transition ${
+                  className={`flex-1 cursor-pointer font-medium select-none transition text-sm sm:text-base break-words ${
                     task.completed ? 'line-through text-gray-400' : 'text-gray-700 group-hover:text-purple-600'
                   }`}
                 >
@@ -145,20 +145,20 @@ function App() {
 
                 <button
                   onClick={() => deleteTask(task.id)}
-                  className="ml-4 border-none text-red-400 rounded-full w-8 h-8 flex items-center justify-center hover:bg-red-50 hover:text-red-600 transition"
+                  className="ml-2 sm:ml-4 border-none text-red-400 rounded-full w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center hover:bg-red-50 hover:text-red-600 transition flex-shrink-0"
                   title="Delete"
                 >
-                  <FaTrash size={16} />
+                  <FaTrash size={14} className="sm:w-4 sm:h-4" />
                 </button>
               </div>
             ))
           )}
         </div>
 
-        <div className="flex justify-center gap-x-3 text-sm mt-auto mb-4">
+        <div className="flex justify-center gap-x-2 sm:gap-x-3 text-xs sm:text-sm mt-auto mb-4 px-4">
           <button
             onClick={() => setFilter('all')}
-            className={`px-5 py-2 rounded-full font-semibold transition ${
+            className={`px-3 sm:px-5 py-2 rounded-full font-semibold transition ${
               filter === 'all' ? 'bg-purple-100 text-purple-700 shadow' : 'text-purple-500 hover:bg-purple-50'
             }`}
           >
@@ -166,7 +166,7 @@ function App() {
           </button>
           <button
             onClick={() => setFilter('complete')}
-            className={`px-5 py-2 rounded-full font-semibold transition ${
+            className={`px-3 sm:px-5 py-2 rounded-full font-semibold transition ${
               filter === 'complete' ? 'bg-purple-100 text-purple-700 shadow' : 'text-purple-500 hover:bg-purple-50'
             }`}
           >
@@ -174,7 +174,7 @@ function App() {
           </button>
           <button
             onClick={() => setFilter('pending')}
-            className={`px-5 py-2 rounded-full font-semibold transition ${
+            className={`px-3 sm:px-5 py-2 rounded-full font-semibold transition ${
               filter === 'pending' ? 'bg-purple-100 text-purple-700 shadow' : 'text-purple-500 hover:bg-purple-50'
             }`}
           >
