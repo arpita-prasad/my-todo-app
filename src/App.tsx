@@ -32,6 +32,7 @@ function App() {
           }))
         );
       } catch (e) {
+        console.log(e)
         alert('Failed to fetch tasks: ' + (e instanceof Error ? e.message : 'Unknown error'));
       } finally {
         setLoading(false);
